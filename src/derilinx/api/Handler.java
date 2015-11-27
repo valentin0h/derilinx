@@ -14,7 +14,7 @@ public class Handler {
 	public static void main(String[] args) {
 
 		// handle id calls
-		get("/incidents/{:id}", (request, response) -> {
+		get("/incidents/:id", (request, response) -> {
 			int id = Integer.parseInt(request.params("id"));
 			List<Incident> incidents = incDao.getIncidentById(id);
 
@@ -30,7 +30,7 @@ public class Handler {
 		} , new JsonTransformer());
 		
 		// handle district calls
-		get("/incidents/district/{:district}", (request, response) -> {
+		get("/incidents/district/:district", (request, response) -> {
 			String district = request.params("district");
 			List<Incident> incidents = incDao.getIncidentsByDistrict(district);
 
